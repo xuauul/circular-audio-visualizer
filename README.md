@@ -8,40 +8,7 @@ This is a desktop application that was created using Electron, a cross-platform 
 
 The layout of this project was inspired by [Alex Permyakov](https://codepen.io/alexdevp/full/RNELPV).
 
-<style>
-.player-images
-{
-    display: flex;
-}
-
-.player-images img
-{
-    width: 400px;
-    height: 400px;
-}
-
-.player-images div
-{
-    display: flex;
-    flex-direction: column;
-}
-
-.player-images div img
-{
-    width: 200px;
-    height: 200px;
-
-    margin: 0;
-    padding: 0;
-}
-</style>
-<div class="player-images">
-    <img src="https://i.imgur.com/M0d6GR9.png">
-    <div>
-        <img src="https://i.imgur.com/IBUfQqA.png">
-        <img src="https://i.imgur.com/Qj8JaK1.png">
-    </div>
-</div>
+![](https://i.imgur.com/kQYSStH.png)
 
 
 ## Features
