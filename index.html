@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>MY Audio Visualizer</title>
+</head>
+<body>
+    <div class="player">
+        <div class="control-panel">
+            <div class="panel-top">
+                <div class="title">MY Player</div>
+                <div class="name">
+                    <marquee scrollamount="3" class="marquee"></marquee>
+                </div>
+            </div>
+            <div class="panel-middle">
+                <div class="btn prev-btn">
+                    <i class="fa-solid fa-backward-step"></i>
+                </div>
+                <div class="btn play-btn">
+                    <i class="fa-solid fa-play"></i>
+                    <i class="fa-solid fa-pause hidden"></i>
+                </div>
+                <div class="btn next-btn">
+                    <i class="fa-solid fa-forward-step"></i>
+                </div>
+            </div>
+            <div class="panel-bottom">
+                <div class="tools">
+                    <div class="btn color-btn">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <div class="btn folder-btn">
+                        <i class="fa-regular fa-folder-open"></i>
+                    </div>
+                    <div class="btn sound-btn">
+                        <i class="fa-solid fa-volume-high"></i>
+                        <i class="fa-solid fa-volume-low hidden"></i>
+                        <i class="fa-solid fa-volume-xmark hidden"></i>
+                    </div>
+                </div>
+                <div class="timer">
+                    00:00
+                </div>
+            </div>
+        </div>
+        <canvas class="canvas"></canvas>
+        <div class="tracker-ball"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,270 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+:root
+{
+    --player-primary-color: #38b0ee;
+    --player-primary-bg-color: #ffffff;
+    --player-primary-gradient-color-1: #38b0ee;
+    --player-primary-gradient-color-2: #15cfd0;
+    --player-primary-gradient-color-3: #38b0ee;
+    --player-primary-gradient-color-4: #ffffff;
+    --player-primary-tracker-color: #38b0ee;
+
+    --tick-max-height: 40px;
+
+    --tracker-margin: 10px;
+    --tracker-ball-radius: 8px;
+    --tracker-transform-begin-radians: 2.356rad;
+
+    --player-size: 320px;
+
+    --drag-area-size: 150px;
+}
+
+.hidden
+{
+    display: none !important;
+}
+
+.canvas
+{
+    /* click-through */
+    pointer-events: none;
+}
+
+.btn
+{
+    /* draggable */
+    -webkit-app-region: no-drag;
+}
+
+/* Player */
+
+.player
+{
+    /* size */
+    width: var(--player-size);
+    height: var(--player-size);
+
+    /* position */
+    position: relative;;
+
+    /* decoration */
+    border-radius: 50%;
+
+    /* overflow */
+    overflow: hidden;
+}
+
+.player::before
+{
+    content: '';
+
+    /* size */
+    width: var(--drag-area-size);
+    height: var(--drag-area-size);
+
+    /* position */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* draggable */
+    -webkit-app-region: drag;
+}
+
+.player .control-panel
+{
+    /* size */
+    width: calc(var(--player-size) - var(--tick-max-height) * 2 - var(--tracker-margin) * 2);
+    height: calc(var(--player-size) - var(--tick-max-height) * 2 - var(--tracker-margin) * 2);
+
+    /* position */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    
+    /* display */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    /* decoration */
+    border-radius: 50%;
+    background: hsl(0, 0%, 95%);
+    color: var(--player-primary-color);
+    border: 1px solid var(--player-primary-color);
+}
+
+.player .control-panel > div
+{
+    /* size */
+    height: 33%;
+
+    /* display */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Player Top */
+
+.player .control-panel .panel-top
+{
+    /* size */
+    width: 60%;
+
+    /* display */
+    flex-direction: column;
+}
+
+.player .control-panel .panel-top .title
+{
+    /* size */
+    width: 100%;
+
+    /* font */
+    font-size: 1.1rem;
+    font-weight: 700;
+    
+    /* overflow */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    /* decoration */
+    text-align: center;
+}
+
+.player .control-panel .panel-top .name,
+.player .control-panel .panel-top .name .marquee
+{
+    /* size */
+    width: 100%;
+}
+
+/* Player Middle */
+
+.player .control-panel .panel-middle
+{
+    /* size */
+    width: 100%;
+
+    /* font */
+    font-size: 2rem;
+}
+
+.player .control-panel .panel-middle > div
+{
+    /* display */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* space */
+    margin: auto;
+}
+
+.player .control-panel .panel-middle .play-btn
+{
+    /* font */
+    font-size: 3rem;
+
+    /* size */
+    width: 33%;
+
+    /* space */
+    margin: 0;
+}
+
+/* Player Bottom */
+
+.player .control-panel .panel-bottom
+{
+    /* size */
+    width: 100%;
+
+    /* display */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.player .control-panel .panel-bottom .tools
+{
+    /* size */
+    width: 100%;
+
+    /* display */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.player .control-panel .panel-bottom .tools > div
+{
+    /* size */
+    width: 2rem;
+
+    /* display */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tracker Circle Button */
+
+.player .tracker-ball
+{
+    /* size */
+    width: calc(var(--tracker-ball-radius) * 2);
+    height: calc(var(--tracker-ball-radius) * 2);
+
+    /* decoration */
+    background: var(--player-primary-color);
+    border-radius: 50%;
+
+    /* position */
+    position: absolute;
+    top: calc(50% - var(--tracker-ball-radius));
+    left: calc(var(--tick-max-height) + var(--tracker-margin) - var(--tracker-ball-radius));
+
+    /* animation */
+    transform-origin: calc(var(--player-size) / 2 - var(--tick-max-height) - var(--tracker-margin) + var(--tracker-ball-radius)) var(--tracker-ball-radius);
+    transform: rotate(var(--tracker-transform-begin-radians));
+}
+
+.player .btn:hover
+{
+    /* decoration */
+    filter: brightness(1.1);
+}
+
+@media only screen and (max-width: 350px) {
+    :root
+    {
+        --player-size: 200px;
+
+        --drag-area-size: 60px;
+    }
+
+    .panel-top,
+    .panel-bottom,
+    .prev-btn,
+    .next-btn
+    {
+        display: none !important;
+    }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "myaudiovisualizer",
+  "version": "1.0.0",
+  "description": "audio visualizer",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "app:dist": "electron-builder",
+    "app:dir": "electron-builder --dir"
+  },
+  "author": "Ming-Yao Li",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^19.0.6",
+    "electron-builder": "^23.1.0"
+  },
+  "build": {
+    "appId": "com.my-audio-visualizer.app",
+    "productName": "MY Audio Visualizer",
+    "mac": {
+      "icon": "assets/icon.png"
+    },
+    "win": {
+      "icon": "assets/icon.png",
+      "target": ["portable"]
+    }
+  }
+}
