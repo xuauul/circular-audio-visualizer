@@ -39,7 +39,6 @@ class Application {
             }
         });
         this.window.loadFile('index.html');
-        this.window.webContents.openDevTools();
 
         this.addEventListeners();
         globalShortcut.register('ctrl+m', () => this.toggleMiniPlayer());
